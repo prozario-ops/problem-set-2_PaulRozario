@@ -16,3 +16,8 @@ import numpy as np
 from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.model_selection import StratifiedKFold as KFold_strat
 from sklearn.tree import DecisionTreeClassifier as DTC
+
+#load data
+df_arrests_test = pd.read_csv("data/df_arrests.csv")
+df_arrests_test = pd.read_csv("data/df_arrests.csv")
+
