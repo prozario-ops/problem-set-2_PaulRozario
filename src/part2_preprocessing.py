@@ -24,6 +24,7 @@ import numpy as np
 
 # Your code here
 #Load `pred_universe_raw.csv` into a dataframe and `arrest_events_raw.csv` into a dataframe
+print("Loading part 2 data...")
 pred_universe = pd.read_csv('data/pred_universe_raw.csv')
 arrest_events = pd.read_csv('data/arrest_events_raw.csv')
 
