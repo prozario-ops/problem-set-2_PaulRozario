@@ -32,6 +32,11 @@ def main():
     else:
         print("Part 3 Logistic Regression failed.")
     # PART 4: Call functions/instanciate objects from decision_tree
+    part4=decision_tree
+    if part4:
+        print("Part 4 Decision Tree completed successfully and model results saved in `./data/`")
+    else:
+        print("Part 4 Decision Tree failed.")
 
     # PART 5: Call functions/instanciate objects from calibration_plot
 
