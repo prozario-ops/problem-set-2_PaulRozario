@@ -61,4 +61,42 @@ def run_part5():
     X_test = df_test[features].fillna(0)
     y_test = df_test['y']
 
+    # Logistic Regression
+
+    print("\nLogistic Regression ...")
+
+    lr_model = lr(C=0.1, max_iter=1000)
+    lr_model.fit(X_train, y_train)
+
+    prob_lr = lr_model.predict_proba(X_test)[:, 1]
+
+
+
+    # Decision Tree
+
+    print("\n Decision Tree...")
+    dt_model = DTC(max_depth=1, random_state=120)
+    dt_model.fit(X_train, y_train)
+
+    prob_dt = dt_model.predict_proba(X_test)[:, 1]
+
+
+    # Calibration Plots
+
+    print("\nLogistic Regression Calibration Plot")
+    calibration_plot(y_test, prob_lr, n_bins=5)
+    
+
+    print("Decision Tree Calibration Plot")
+    calibration_plot(y_test, prob_dt, n_bins=5)
+
+    # Which model is more calibrated
+
+    print("\nWhich model is more calibrated?")
+    print("\n Logistic regression "
+    "is slightly more calibrated since it gives smoother probability estimates, " \
+    "while the decision tree tends to be more rigid.Both models look almost the same on the calibration plots. " \
+    "This is because most of the predicted probabilities are very low, " \
+    "so everything falls into only a couple of bins.  Overall, " \
+    "there is not a noticeable difference between them.")
 
