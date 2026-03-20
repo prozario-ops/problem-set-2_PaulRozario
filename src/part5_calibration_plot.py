@@ -17,6 +17,9 @@ Extra Credit
 from sklearn.calibration import calibration_curve
 import matplotlib.pyplot as plt
 import seaborn as sns
+import pandas as pd 
+from sklearn.tree import DecisionTreeClassifier as DTC
+from sklearn.linear_model import LogisticRegression as lr
 
 # Calibration plot function 
 def calibration_plot(y_true, y_prob, n_bins=10):
@@ -31,10 +34,10 @@ def calibration_plot(y_true, y_prob, n_bins=10):
     Returns:
         None
     """
-    #Calculate calibration values
+
     bin_means, prob_true = calibration_curve(y_true, y_prob, n_bins=n_bins)
     
-    #Create the Seaborn plot
+
     sns.set(style="whitegrid")
     plt.plot([0, 1], [0, 1], "k--")
     plt.plot(prob_true, bin_means, marker='o', label="Model")
@@ -44,3 +47,18 @@ def calibration_plot(y_true, y_prob, n_bins=10):
     plt.title("Calibration Plot")
     plt.legend(loc="best")
     plt.show()
+def run_part5():
+    print("Loading Part 5 data...")
+
+    df_train = pd.read_csv("data/df_arrests_train.csv")
+    df_test = pd.read_csv("data/df_arrests_test.csv")
+
+    features = ['current_charge_felony', 'num_fel_arrests_last_year']
+
+    X_train = df_train[features].fillna(0)
+    y_train = df_train['y']
+
+    X_test = df_test[features].fillna(0)
+    y_test = df_test['y']
+
+

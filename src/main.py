@@ -7,7 +7,7 @@ import part1_etl as etl
 import part2_preprocessing as preprocessing
 import part3_logistic_regression as logistic_regression
 import part4_decision_tree as decision_tree
-import part5_calibration_plot as calibration_plot
+import part5_calibration_plot as calibrationPlot
 
 
 # Call functions / instanciate objects from the .py files
@@ -39,6 +39,10 @@ def main():
         print("Part 4 Decision Tree failed.")
 
     # PART 5: Call functions/instanciate objects from calibration_plot
+    part5=calibrationPlot.run_part5()
+    
+    print("Part 5 Calibration Plot completed successfully.")
+
 
 
 if __name__ == "__main__":
